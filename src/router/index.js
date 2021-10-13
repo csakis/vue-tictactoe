@@ -9,6 +9,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+
   },
   {
     path: '/about',
@@ -22,5 +23,10 @@ const router = new VueRouter({
   linkActiveClass: 'active',
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  document.title = to.name;
+  next();
+});
 
 export default router
